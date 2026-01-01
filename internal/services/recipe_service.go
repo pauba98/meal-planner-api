@@ -19,3 +19,8 @@ func NewRecipeService(repo repository.RecipeRepository) *RecipeService {
 func (s *RecipeService) GetRecipes() ([]models.Recipe, error) {
 	return s.repo.GetAll()
 }
+
+func (s *RecipeService) CreateRecipe(recipe models.Recipe) (models.Recipe, error) {
+	created := s.repo.Create(recipe)
+	return created, nil
+}
