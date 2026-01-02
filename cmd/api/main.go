@@ -19,10 +19,10 @@ func main() {
 
 	r := chi.NewRouter()
 	r.Get("/recipes", handler.GetAll)
-	// r.Get("/recipes/{id}", handler.GetByID)
+	r.Get("/recipe/{id}", handler.GetByID)
 	r.Post("/recipe", handler.Create)
-	// r.Put("/recipe/{id}", handler.Update)
-	// r.Delete("/recipes/{id}", handler.Delete)
+	r.Put("/recipe/{id}", handler.Update)
+	r.Delete("/recipe/{id}", handler.Delete)
 
 	log.Println("Server running on :8080")
 	log.Fatal(http.ListenAndServe(":8080", r))
